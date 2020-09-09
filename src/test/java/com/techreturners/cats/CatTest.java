@@ -6,18 +6,21 @@ import static org.junit.Assert.*;
 
 public class CatTest {
 
+
     @Test
     public void checkCatIsAwake() {
         Cat domesticCat = new DomesticCat();
         assertFalse("Cat should be awake by default", domesticCat.isAsleep());
     }
 
+ 
     @Test
     public void checkCatCanGoToSleep() {
         Cat domesticCat = new DomesticCat();
         domesticCat.goToSleep();
         assertTrue("Cat should be snoozing", domesticCat.isAsleep());
     }
+
 
     @Test
     public void checkCatCanWakep() {
@@ -27,6 +30,7 @@ public class CatTest {
         assertFalse("Cat should be awake now", domesticCat.isAsleep());
     }
 
+ 
     @Test
     public void checkCatSetting() {
         Cat domesticCat = new DomesticCat();
@@ -39,6 +43,7 @@ public class CatTest {
         assertEquals(23, domesticCat.getAverageHeight());
     }
 
+ 
     @Test
     public void checkLionHeight() {
         Cat lionCat = new LionCat();
@@ -52,11 +57,13 @@ public class CatTest {
         assertEquals("Roar!!!!", lionCat.eat());
     }
 
+
     @Test
     public void feedTheCheetah() {
         Cat cheetahCat = new CheetahCat();
         assertEquals("Zzzzzzz", cheetahCat.eat());
     }
+
 
     @Test
     public void feedTheCat() {
