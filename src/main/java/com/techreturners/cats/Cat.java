@@ -1,21 +1,27 @@
 package com.techreturners.cats;
 
 import javax.naming.InitialContext;
+import java.io.*;
 
 interface Cat {
-  public String eat(); // interface method
-  public boolean isAsleep();
-  public void goToSleep();
-  public void wakeUp();
-  public String getSetting();
-  public int getAverageHeight();
+  public abstract String eat(); // interface method
+  public abstract boolean isAsleep();
+  public abstract void goToSleep();
+  public abstract void wakeUp();
+  public abstract String getSetting();
+  public abstract int getAverageHeight();
 }
 
 abstract class Cats implements Cat {
-  protected boolean asleep;
-  protected String type;
-  protected int averageHeight;
+  private boolean asleep=false;
+  private String type;
+  private int averageHeight;
 
+  public Cats(String type, int averageHeight)
+  {
+    this.type=type;
+    this.averageHeight= averageHeight;
+  }
   public boolean isAsleep() {
     return this.asleep;
   }
@@ -35,13 +41,12 @@ abstract class Cats implements Cat {
   public int getAverageHeight() {
     return this.averageHeight;
   }
+
 }
 
 class DomesticCat extends Cats {
   public DomesticCat() {
-    this.asleep = false;
-    this.type = "domestic";
-    this.averageHeight = 23;
+    super("domestic", 23);
   }
 
   public String eat() {
@@ -51,8 +56,8 @@ class DomesticCat extends Cats {
 
 class LionCat extends Cats {
   public LionCat() {
-    this.type = "wild";
-    this.averageHeight = 1100;
+    super ("wild", 1100);
+
   }
 
   public String eat() {
@@ -61,6 +66,10 @@ class LionCat extends Cats {
 }
 
 class CheetahCat extends Cats {
+  public CheetahCat() {
+    super ("wild", 70);
+
+  }
   public String eat() {
     return ("Zzzzzzz");
   }
